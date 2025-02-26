@@ -5,19 +5,20 @@ import Login from "../pages/login";
 import Register from "../pages/register";
 import ForgetPassword from "../pages/forgotPassword";
 import ProtectedRoute from "../components/protect";
+import ForgetSet from "../pages/forgetSet";
 
 export let router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <ProtectedRoute>
-        <MainLayout />
-      </ProtectedRoute>
-    ),
+    element: <MainLayout />,
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: (
+          <ProtectedRoute>
+            <Home />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/login",
@@ -30,6 +31,10 @@ export let router = createBrowserRouter([
       {
         path: "/forgotPassword",
         element: <ForgetPassword />,
+      },
+      {
+        path: "/forgotSet",
+        element: <ForgetSet />,
       },
     ],
   },

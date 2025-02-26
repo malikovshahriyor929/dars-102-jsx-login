@@ -4,21 +4,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
-
-import { loginChecker } from "../../redux/loginSlice";
-
 import { Button, Checkbox, TextField } from "@mui/material";
 import {
   Apple,
-  Facebook,
   FacebookSharp,
-  Flag,
   Google,
 } from "@mui/icons-material";
 
 const baseUrl = "https://679b903633d316846324525e.mockapi.io";
 
 const Login = () => {
+  
   const dispatch = useDispatch();
   const data = useSelector((state) => state.LoginSlice);
   let [checker, setChecker] = useState(false);

@@ -1,8 +1,6 @@
 import axios from "axios";
 import { createSlice } from "@reduxjs/toolkit";
-import { Navigate } from "react-router-dom";
-import { Alert } from "@mui/material";
-import { toast } from "react-toastify";
+
 
 let initialState = {
   userData: JSON.parse(localStorage.getItem("data")) || [],
@@ -26,6 +24,15 @@ let LoginSlice = createSlice({
         });
       }
     },
+    forgot: (state, { payload }) => {
+    state.userData = state.userData.map((value) =>
+        value.email === payload.email
+          ? ({ ...value, password: payload.password },console.log(payload)
+          )
+          : value
+      );
+      localStorage.setItem("data",JSON.stringify(state.userData))
+    },
     // login: (state, { payload }) => {
     //   state.userData.filter((value) =>
     //     value.email === payload.email && value.password === payload.password
@@ -39,5 +46,5 @@ let LoginSlice = createSlice({
 
 export { loginChecker };
 
-export const { setUsers, registerFunction, login } = LoginSlice.actions;
+export const { setUsers, registerFunction, login, forgot } = LoginSlice.actions;
 export default LoginSlice.reducer;

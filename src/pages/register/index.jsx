@@ -29,7 +29,6 @@ const Register = () => {
   useEffect(() => {
     axios.get(`${baseUrl}/lavashxona`).then((res) => {
       dispatch(setUsers(res.data));
-      console.log(res);
     });
   }, [dispatch]);
 
@@ -90,7 +89,7 @@ const Register = () => {
           <div className="flex items-center mt-4">
             <Checkbox />
             <span className="text-gray-700">
-              I agree to all the{" "}
+              I agree to all the
               <a href="#" className="text-red-400">
                 Terms
               </a>
@@ -100,19 +99,20 @@ const Register = () => {
               </a>
             </span>
           </div>
-
-          <Button
-            type="submit"
-            variant="contained"
-            fullWidth
-            className="!my-2"
-            sx={{
-              backgroundColor: "#5A42D1",
-              ":hover": { backgroundColor: "#4a38b0" },
-            }}
-          >
-            Create account
-          </Button>
+          <Link to={"/register"}>
+            <Button
+              type="submit"
+              variant="contained"
+              fullWidth
+              className="!my-2"
+              sx={{
+                backgroundColor: "#5A42D1",
+                ":hover": { backgroundColor: "#4a38b0" },
+              }}
+            >
+              Create account
+            </Button>
+          </Link>
         </form>
 
         <p className="text-center text-gray-700 mt-4">
